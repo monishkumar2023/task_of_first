@@ -32,7 +32,7 @@ public class TicketController
 	@GetMapping("/ticket/{id}")
 	public Bean oneticket(@Validated @PathVariable("id")int id) throws IdNotFoundException
 	{
-		if(id>2)
+		if(id>45 && id<100)
 		{
 			String messege=String.format("id not found",id);
 			throw new IdNotFoundException(messege);
@@ -46,7 +46,7 @@ public class TicketController
 		return ticketprovide.alltickets();
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/remove/{id}")
 	public List<Bean> delete_passenger(@PathVariable("id")int id)
 	{
 		ticketprovide.delete_passenger(id);
